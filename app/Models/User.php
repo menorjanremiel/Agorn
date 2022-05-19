@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use App\Models\Profile;
+use App\Models\Company;
+use App\Models\Job;
+use App\Models\Role;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -18,9 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name','email','password','user_type'
     ];
 
     /**
@@ -29,8 +30,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password','remember_token',
     ];
 
     /**
@@ -41,4 +41,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
+    }
+
+    public function company(){
+        return $this->hasOne(Company::class);
+    }
+
+    public function users(){
+        return $this->belongsToMany(User::class)->withTimeStamps();
+    }
+
+    public function favorites(){
+        return $this->belongsToMany(Job::class,'favorites','user_id','job_id')->withTimeStamps();
+    }
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    }
+
+
 }
