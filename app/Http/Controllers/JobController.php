@@ -15,7 +15,7 @@ use App\Models\Testimonial;
 class JobController extends Controller
 {
     public function __construct(){
-        $this->middleware('employer',['except'=>array('index','show','apply','allJobs','searchJobs','category')]);
+        $this->middleware(['employer','verified'],['except'=>array('index','show','apply','allJobs','searchJobs','category')]);
     }
 
 

@@ -13,7 +13,7 @@ class EmployerRegisterController extends Controller
         public function employerRegister(Request $request){
         
             $this->validate($request,[
-                'cname'=>'required|string|max:60',
+                'cname'=>'required|string|max:255',
                 'email'=>'required|string|email|max:255|unique:users',
                 'password'=>'required|string|min:8|confirmed'
             ]);
@@ -29,9 +29,9 @@ class EmployerRegisterController extends Controller
                     'slug'=>str_slug(request('cname'))
     
                 ]);
-            // $user->sendEmailVerificationNotification();
+            $user->sendEmailVerificationNotification();
     
-            return redirect()->back()->with('message','A verification link is sent to your email. Please follow the link to verify it');
+            return redirect()->to('login')->with('message','A verification link is sent to your email. Please follow the link to verify it');
     
     }
 }

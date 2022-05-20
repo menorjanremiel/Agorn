@@ -11,7 +11,7 @@ use App\Models\Profile;
 use App\Models\Company;
 use App\Models\Job;
 use App\Models\Role;
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
