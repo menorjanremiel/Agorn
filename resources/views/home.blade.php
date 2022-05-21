@@ -13,9 +13,7 @@
                 
 
                 <div class="card-body">  
-                    <small class="badge badge-success">{{$job->position}}
-                </small>
-
+                    <span class="badge bg-success">{{$job->position}}</span>
                    <p> {{$job->description}}</p>
                 </div>
                 <div class="card-footer">
@@ -28,7 +26,7 @@
             @endforeach
 
             @else
-            you do not have any favorited jobs to show.
+            you have not  favourited any jobs to show.
             <a href="/">Find Jobs</a>
             @endif
 

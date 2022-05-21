@@ -33,7 +33,40 @@ class JobController extends Controller
 
     public function show($id,Job $job)
     {
-        return view('jobs.show',compact('job'));
+        $jobRecommendations = $this->jobRecommendations($job);
+        return view('jobs.show',compact(['job','jobRecommendations']));
+    }
+
+    public function jobRecommendations($job){
+        $data = [];
+        
+        $jobsBasedOnCategories = Job::latest()->where('category_id',$job->category_id)
+                             ->whereDate('last_date','>',date('Y-m-d'))
+                             ->where('id','!=',$job->id)
+                             ->where('status',1)
+                             ->limit(6)
+                             ->get();
+        array_push($data,$jobsBasedOnCategories);
+                           
+        $jobBasedOnCompany = Job::latest()
+                                ->where('company_id',$job->company_id)
+                                ->whereDate('last_date','>',date('Y-m-d'))
+                                ->where('id','!=',$job->id)
+                                ->where('status',1)
+                                ->limit(6)
+                                ->get();
+            array_push($data,$jobBasedOnCompany);
+
+        $jobBasedOnPosition= Job::where('position','LIKE','%'.$job->position.'%')                 
+                                ->where('id','!=',$job->id)
+                                ->where('status',1)
+                                ->limit(6);
+            array_push($data,$jobBasedOnPosition);
+
+       $collection  = collect($data);
+       $unique = $collection->unique("id");
+       $jobRecommendations =  $unique->values()->first();
+       return $jobRecommendations;
     }
 
 
@@ -132,7 +165,7 @@ class JobController extends Controller
                return view('jobs.alljobs',compact('jobs'));
        }
    
-   
+
    }
    public function searchJobs(Request $request){
        

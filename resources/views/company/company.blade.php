@@ -9,7 +9,6 @@
 
 			<div class="card" style="width: 18rem;">
 				@if(empty($company->logo))
-fg
 			<img width="100" src="{{asset('avatar/man.jpg')}}"class="card-img-top">
 
 			@else

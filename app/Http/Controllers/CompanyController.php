@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 use App\Models\Company; 
+use App\Models\Job;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
    public function __construct(){
-      $this->middleware(['employer','verified'],['except'=>array('index')]);
+      $this->middleware(['employer','verified'],['except'=>array('index','company')]);
    }
    public function index($id,Company $company)
    {
+      $jobs = Job::where('user_id',$id)->get();
       return view('company.index',compact('company'));
    }
    public function company(){
