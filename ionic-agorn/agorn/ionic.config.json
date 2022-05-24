@@ -1,0 +1,7 @@
+{
+  "name": "Agorn",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
