@@ -108,6 +108,10 @@
                                 <a class="dropdown-item" href="{{route('home')}}">
                                     {{ __('Saved jobs') }}
                                 </a>
+
+                                <a class="dropdown-item" href="{{ url('/') }}">
+                                    {{ __('Find a job') }}
+                                </a>
                                 @else
 
 

@@ -14,7 +14,6 @@ Route::get('/jobs/alljobs',[App\Http\Controllers\JobController::class, 'allJobs'
 Route::get('/jobs/{id}/{job}',[App\Http\Controllers\JobController::class, 'show'])->name('jobs.show');
 Route::post('/applications/{id}',[App\Http\Controllers\JobController::class, 'apply'])->name('job.apply');
 //auth::routes
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //company
 Route::get('/company/{id}/{company}',[App\Http\Controllers\CompanyController::class, 'index'])->name('company.index');

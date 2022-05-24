@@ -17,7 +17,7 @@
           <div class="py-1">
             <div class="row align-items-center">
               <div class="col-2">
-                <h2 class=" site-logo"><a href="/"><img src="{{ asset('Agorn-Logo.svg') }}" alt="" srcset=""> </a></h2>
+                <h2 class=" site-logo"><a href="/"><img src="{{ asset('Agorn-Logo.svg') }}" alt="" srcset="" style="width: 10rem"> </a></h2>
               </div>
               <div class="col-10">
                 <nav class="site-navigation text-right" role="navigation">

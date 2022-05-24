@@ -34,9 +34,9 @@
               <td>{{str_limit($post->content,20)}}</td>
               <td>
                 @if($post->status=='0')
-                   <a href="{{route('post.toggle',[$post->id])}}" class="badge badge-primary"> Draft</a>
+                   <a href="{{route('post.toggle',[$post->id])}}" class="badge bg-primary text-decoration-none"> Draft</a>
                     @else
-                   <a href="{{route('post.toggle',[$post->id])}}" class="badge badge-success"> Live</a>
+                   <a href="{{route('post.toggle',[$post->id])}}" class="badge bg-success text-decoration-none"> Live</a>
                 @endif
             </td>
               <td>{{$post->created_at->diffForHumans()}}</td>

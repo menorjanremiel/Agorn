@@ -69,11 +69,14 @@
                     <td><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Address:{{$job->address}}</td>
                     <td><i class="fa fa-globe"aria-hidden="true"></i>&nbsp;Date:{{$job->created_at->diffForHumans()}}</td>
                     <td>
+
+                        @if(Auth::check()&&Auth::user()->user_type=='seeker')
                         <a href="{{route('jobs.show',[$job->id,$job->slug])}}">
                             <button class="btn btn-success btn-sm">     Apply
                             </button>
                         </a>
-                        
+                        @else
+                        @endif                        
                 </td>
                 </tr>
                 @endforeach
