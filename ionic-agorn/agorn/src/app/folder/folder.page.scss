@@ -2,13 +2,13 @@ ion-menu-button {
   color: var(--ion-color-primary);
 }
 
-#container {
-  text-align: center;
-  position: absolute;
-  left: 25%;
-  top: 50%;
-  transform: translateY(-50%);
-}
+// #container {
+//   text-align: center;
+//   position: absolute;
+//   left: 15%;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
 
 #container strong {
   font-size: 20px;
@@ -30,19 +30,27 @@ ion-searchbar {
   --background: white;
   --placeholder-color: gray;
   --color: black;
+  padding: 0.5rem .1rem;
 }
 .job{
-  padding-right: 35rem;
-  float: left;
   font-size: 60px;
 }
 
 .ctn {
   display: flex;
   flex-direction: column;
+  padding-top: 5rem;
 }
 
 .ctn-1{
-  display: flex;
-  flex-direction: row;
+  padding: 0px 1rem;
+}
+
+ion-button {
+  height: 3rem;
+}
+.container {
+  background-size: cover;
+  background-image: url(../../assets/hero_1.jpg);
+  height: 92vh;
 }

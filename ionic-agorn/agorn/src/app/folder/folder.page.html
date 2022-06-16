@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title></ion-title>
@@ -14,14 +14,39 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
+  <div class="container">
     <div class="ctn">
       <h1 class="job">Find Job</h1>
       <div class="ctn-1">
         <ion-searchbar class="search" placeholder="job title, keywords, job type"></ion-searchbar>
         <ion-searchbar class="address" placeholder="address"></ion-searchbar>
-        <ion-button color="success" size="large">Search</ion-button>
+        <ion-button expand="block" color="success">Search</ion-button>
       </div>
     </div>
   </div>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="schedule">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Schedule</ion-label>
+        <ion-badge>6</ion-badge>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="speakers">
+        <ion-icon name="person-circle"></ion-icon>
+        <ion-label>Speakers</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="map">
+        <ion-icon name="map"></ion-icon>
+        <ion-label>Map</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="about">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>About</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-content>
